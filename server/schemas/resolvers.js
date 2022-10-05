@@ -9,7 +9,7 @@ const resolvers = {
             if(context.user){
                 const userData = await user.findOne({
                     _id: context.user_id
-                }).select("-__v -password");
+                }).select("-__v -password").populate('books')
 
                 return userData;
             }
